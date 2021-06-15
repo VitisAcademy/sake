@@ -1,0 +1,41 @@
+.assn{}
+.assn__task{
+  width: calc(~"280px + 120 * ((100vw - 320px) / 880)");
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.assn__quest{
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.assn__answer{
+  margin-top: 10px;
+}
+
+.assn__button{
+  border-radius: 10px;
+  border: 4px solid #282828;
+  background-color: #EADEDA;
+  cursor: pointer;
+  padding: 10px;
+  &:hover{
+    filter: brightness(1.2);
+  }
+}
+
+.assnGreen{
+  border: 4px solid green;
+}
+.assnRed{
+  border: 4px solid red;
+}
+.hidden{
+  display: none;
+}

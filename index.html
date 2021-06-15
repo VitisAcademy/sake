@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Сидр и саке</title>
+  <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="css/main.min.css">
+  <script src="js/draggabilly.pkgd.min.js"></script>
+  <script src="js/db.js"></script>
+</head>
+<body>
+<div class="ave">
+  <div class="ave__title">Введите email</div>
+  <input type="email" maxlength="40" autocomplete="off" onkeyup="checkValidate(this)" autofocus class="ave__input">
+  <div class="ave__button button" onclick="logIn()">Продолжить</div>
+</div>
+<div class="header">
+  <div class="header__menu" onclick="toggleHamburger()"></div>
+  <div class="header__title"><!-- название первого задания --></div>
+</div>
+<div class="main">
+  <div class="task">
+    <div class="lock hidden"></div>
+    <div class="info">
+      <div class="info__title">Прочитайте вопрос и выберите правильный вариант ответа.</div>
+      <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page assn left"></div>
+  </div>
+
+  <div class="task hidden">
+    <div class="lock hidden"></div>
+    <div class="info">
+      <div class="info__title">Помогите журналисту написать статью. Для этого заполните пробелы в предложениях.</div>
+      <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page scribe left">
+      <div class="scribe__title">
+        Существует 2 вида историй – легенда и правда. Начнём с первой. Однажды у божественного принца
+        <input type="text" maxlength="6" autocomplete="off" class="scribe__input" style='width: calc(99px + (111 - 99) * ((100vw - 320px) / 880))'>
+        украл возлюбленную и заточил её в неволе. Бедный парень не знал, как спасти любимую, потому что похититель был слишком силён. Но внезапно в голову пришла идея – создать алкогольный напиток из
+        <input type="text" maxlength="4" autocomplete="off" class="scribe__input" style='width: calc(66px + (74 - 66) * ((100vw - 320px) / 880))'>
+        . Он сделал целый чан
+        <input type="text" maxlength="4" autocomplete="off" class="scribe__input" style='width: calc(66px + (74 - 66) * ((100vw - 320px) / 880))'>
+        и приманил
+        <input type="text" maxlength="7" autocomplete="off" class="scribe__input" style='width: calc(116px + (130 - 116) * ((100vw - 320px) / 880))'>
+        . Последний выпил его до дна, захмелел и не смог бороться с принцем. Так тот и победил чудовище, а также спас возлюбленную.<br><br>Правдивая история выглядит не так романтично. Ещё 2000 лет назад на острове
+        <input type="text" maxlength="4" autocomplete="off" class="scribe__input" style='width: calc(66px + (74 - 66) * ((100vw - 320px) / 880))'>
+        жили женщины, которые жевали
+        <input type="text" maxlength="5" autocomplete="off" class="scribe__input" style='width: calc(83px + (93 - 83) * ((100vw - 320px) / 880))'>
+        . Но они его не проглатывали, а
+        <input type="text" maxlength="10" autocomplete="off" class="scribe__input" style='width: calc(165px + (185 - 165) * ((100vw - 320px) / 880))'>
+        в чан, где всё
+        <input type="text" maxlength="7" autocomplete="off" class="scribe__input" style='width: calc(116px + (130 - 116) * ((100vw - 320px) / 880))'>
+        и получалось саке.
+      </div>
+      <div class=" button" onclick="scoreButton(1);scribeCheck()">Нажмите для завершения!</div>
+    </div>
+  </div>
+
+  <div class="task hidden">
+    <div class="lock hidden" style="z-index: 3"></div>
+    <div class="info" style="z-index: 2">
+      <div class="info__title">Поставьте в правильном порядке выдержку чилийских вин.</div>
+      <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page y left" style="z-index: 1">
+      <div class="y__grid">
+        <div class="y__movebox">
+          <div class="y__move" style="top: 0">Двойная ферментация</div>
+          <div class="y__move" style="top: 60px">Сбор риса</div>
+          <div class="y__move" style="top: 120px">Шлифовка и промывка</div>
+          <div class="y__move" style="top: 180px">Отжим и фильтрация</div>
+          <div class="y__move" style="top: 240px">Пастеризация и выдержка</div>
+          <div class="y__move" style="top: 300px">Замачивание и пропаривание</div>
+        </div>
+      </div>
+      <div class="button" onclick="scoreButton(2);sortYScore()">Нажмите для завершения!</div>
+    </div>
+  </div>
+
+  <!-- задания -->
+  
+  <div class="task hidden">
+    <div class="lock hidden"></div>
+    <div class="info">
+      <div class="info__title">Прочитайте внимательно вопрос. Дайте развёрнутый ответ в комментариях к уроку.</div>
+      <div onclick="startInfo(this)" class="info__button button">Понятно!</div>
+    </div>
+    <div class="task__page asked left">
+      <div class="asked__title"></div>
+      <div class=" button" onclick="endButton()">Дать ответ!</div>
+    </div>
+  </div>
+</div>
+<div class="footer"></div>
+<div class="menu menu__off">
+  <div class="menu__content"></div>
+</div>
+<script src="js/assn.js"></script>
+<script src="js/scribe.js"></script>
+<script src="js/sort_y.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
